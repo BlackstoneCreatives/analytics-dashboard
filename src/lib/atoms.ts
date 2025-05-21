@@ -30,12 +30,12 @@ export const ticketChartDataAtom = atom((get) => {
         {
           date: item.date,
           type: "resolved",
-          count: item.resolved,
+          count: item.conversions,
         },
         {
           date: item.date,
           type: "created",
-          count: item.created,
+          count: item.impressions,
         },
       ];
       return res;
