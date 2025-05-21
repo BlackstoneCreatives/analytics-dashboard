@@ -29,9 +29,9 @@ export default function DashboardLayout({
       display: "flex",
       minHeight: "100vh",
       background: "#101828",
-      color: "#fff"
+      color: "#fff",
+      width: "100%"
     }}>
-      
       {/* Main Content */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <TopNav title="Dashboard" />
