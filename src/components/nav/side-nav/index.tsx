@@ -1,42 +1,36 @@
-"use client";
+// src/components/nav/side-nav/index.tsx
 
-import { ArrowLeftToLine, ArrowRightToLine } from "lucide-react";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import Navigation from "./components/navigation";
-import User from "./components/user";
-import VisActor from "./components/visactor";
+import Link from "next/link";
 
 export default function SideNav() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <>
-      <button
-        className={cn(
-          "fixed left-0 top-12 z-50 rounded-r-md bg-slate-200 px-2 py-1.5 text-primary-foreground shadow-md hover:bg-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 tablet:hidden",
-          "transition-transform duration-300 ease-in-out",
-          isOpen ? "translate-x-44" : "translate-x-0",
-        )}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? (
-          <ArrowLeftToLine size={16} />
-        ) : (
-          <ArrowRightToLine size={16} />
-        )}
-      </button>
-      <aside
-        className={cn(
-          "fixed bottom-0 left-0 top-0 z-40 flex h-[100dvh] w-44 shrink-0 flex-col border-r border-border bg-slate-100 dark:bg-slate-900 tablet:sticky tablet:translate-x-0",
-          "transition-transform duration-300 ease-in-out",
-          isOpen ? "translate-x-0" : "-translate-x-full",
-        )}
-      >
-        <User />
-        <Navigation />
-        <VisActor />
-      </aside>
-    </>
+    <nav style={{
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '18px',
+      padding: '36px 0 0 16px',
+      minWidth: '220px',
+      background: '#1e293b',
+      height: '100vh'
+    }}>
+      <Link href="/dashboard">
+        <span style={{ color: '#fff', fontWeight: 700, fontSize: 20 }}>Dashboard</span>
+      </Link>
+      <Link href="/overview">
+        <span style={{ color: '#cbd5e1' }}>Overview</span>
+      </Link>
+      <Link href="/donor-campaigns">
+        <span style={{ color: '#cbd5e1' }}>Donor Campaigns</span>
+      </Link>
+      <Link href="/volunteer-engagement">
+        <span style={{ color: '#cbd5e1' }}>Volunteer Engagement</span>
+      </Link>
+      <Link href="/fundraising-reports">
+        <span style={{ color: '#cbd5e1' }}>Fundraising Reports</span>
+      </Link>
+      <Link href="/settings">
+        <span style={{ color: '#cbd5e1' }}>Settings</span>
+      </Link>
+    </nav>
   );
 }
