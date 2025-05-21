@@ -1,6 +1,6 @@
 // src/data/average-ads-stats.ts
 
-export const averageAdsStats = [
+export const averageTicketsCreated = [
   {
     date: "2024-05-12",
     impressions: 3100,
